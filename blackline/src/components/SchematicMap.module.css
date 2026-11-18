@@ -1,0 +1,103 @@
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.bg {
+  fill: var(--coal);
+}
+.blocks rect {
+  fill: #242424;
+}
+.park {
+  opacity: 1;
+}
+.target {
+  fill: var(--bone);
+}
+.streets path {
+  fill: none;
+  stroke: var(--graphite);
+  stroke-width: 22;
+  opacity: 0.35;
+}
+.streets .diag {
+  stroke-width: 14;
+}
+.labels text {
+  fill: var(--ash);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.route {
+  fill: none;
+  stroke: var(--bone);
+  stroke-width: 2.5;
+  stroke-dasharray: 7 7;
+}
+.metro {
+  fill: var(--bone);
+}
+.metroText {
+  fill: var(--ink);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 18px;
+}
+.caption {
+  fill: var(--bone);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.pin {
+  fill: var(--ink);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.pulse {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 2.6s var(--ease-out) infinite;
+}
+.brand {
+  fill: var(--ink);
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+}
+.north path {
+  fill: none;
+  stroke: var(--ash);
+  stroke-width: 1.5;
+}
+.north text {
+  fill: var(--ash);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.35);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+@media (max-width: 760px) {
+  .labels text,
+  .caption {
+    font-size: 15px;
+  }
+}

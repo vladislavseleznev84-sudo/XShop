@@ -1,0 +1,289 @@
+.section {
+  background: var(--coal);
+  padding: clamp(80px, 12vw, 190px) var(--gutter) clamp(80px, 11vw, 170px);
+  overflow: hidden;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: clamp(56px, 9vw, 150px);
+}
+.title {
+  font-size: var(--t-h2);
+}
+.note {
+  max-width: 28ch;
+  font-size: var(--t-small);
+  color: var(--ash);
+  padding-bottom: 0.8em;
+}
+
+.chapter {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(12px, 2vw, 32px);
+  position: relative;
+}
+.chapter + .chapter {
+  margin-top: clamp(96px, 14vw, 240px);
+}
+.role {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: var(--t-h3);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.meta {
+  max-width: 40ch;
+  color: var(--ash);
+  font-size: var(--t-small);
+  line-height: 1.6;
+}
+
+/* ───── Дамир ───── */
+.damirPhoto {
+  grid-column: 1 / 6;
+  grid-row: 1 / 3;
+}
+.damirName {
+  grid-column: 4 / 13;
+  grid-row: 1;
+  align-self: start;
+  z-index: 2;
+  margin-top: clamp(-40px, -2vw, 0px);
+  font-family: var(--serif);
+  font-weight: 300;
+  font-stretch: 100%;
+  font-size: clamp(5.5rem, 17vw, 17rem);
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  mix-blend-mode: difference;
+  color: var(--bone);
+}
+.damirBody {
+  grid-column: 7 / 12;
+  grid-row: 2;
+  align-self: end;
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+}
+.signature {
+  max-width: 24ch;
+  font-size: var(--t-lead);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--ash);
+}
+.facts {
+  display: grid;
+  gap: 0;
+  width: min(100%, 26rem);
+  margin: 6px 0 10px;
+}
+.facts div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--graphite);
+  font-size: var(--t-small);
+}
+.facts div:last-child {
+  border-bottom: 1px solid var(--graphite);
+}
+.facts dt {
+  color: var(--ash);
+}
+
+/* ───── Илья ───── */
+.ilyaName {
+  grid-column: 1 / 13;
+  grid-row: 1;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-stretch: 62.5%;
+  font-size: clamp(8rem, 30vw, 32rem);
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--bone);
+  white-space: nowrap;
+  user-select: none;
+  margin-left: -0.04em;
+  /* контур идёт поверх фото: имя «прорезает» кадр */
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  align-self: start;
+}
+.ilyaPhoto {
+  grid-column: 5 / 13;
+  grid-row: 1;
+  align-self: end;
+  margin-bottom: clamp(-100px, -7vw, -40px);
+  z-index: 1;
+}
+.ilyaBody {
+  grid-column: 5 / 13;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: clamp(12px, 2vw, 32px);
+  row-gap: 18px;
+  padding-top: clamp(48px, 7vw, 110px);
+}
+.ilyaBody .quote {
+  grid-column: 1 / 5;
+  grid-row: 1 / 5;
+}
+.ilyaBody > :not(.quote) {
+  grid-column: 5 / 9;
+  justify-self: start;
+}
+.quote {
+  margin: 0;
+  max-width: 17ch;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* ───── Марк ───── */
+.markBody {
+  grid-column: 1 / 8;
+  display: grid;
+  gap: clamp(20px, 3vw, 40px);
+  justify-items: start;
+  align-content: end;
+}
+.markName {
+  font-size: clamp(6rem, 18vw, 18rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+}
+.skills {
+  display: grid;
+  width: 100%;
+}
+.skills li {
+  padding: clamp(10px, 1.4vw, 20px) 0;
+  border-top: 1px solid var(--graphite);
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 0.9rem + 2.6vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.skills li:last-child {
+  border-bottom: 1px solid var(--graphite);
+}
+.markPhoto {
+  grid-column: 9 / 13;
+  align-self: start;
+}
+
+@media (max-width: 960px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .damirName {
+    grid-column: 3 / 13;
+  }
+  .damirBody {
+    grid-column: 6 / 13;
+  }
+  .ilyaPhoto {
+    grid-column: 3 / 13;
+  }
+  .ilyaBody {
+    grid-column: 3 / 13;
+  }
+  .markBody {
+    grid-column: 1 / 8;
+  }
+  .markPhoto {
+    grid-column: 8 / 13;
+  }
+}
+
+/* ───── Мобильная версия: те же три «почерка», но в одну колонку ───── */
+@media (max-width: 760px) {
+  .chapter {
+    display: flex;
+    flex-direction: column;
+  }
+  .chapter + .chapter {
+    margin-top: 88px;
+  }
+  .damirPhoto {
+    width: 82%;
+  }
+  .damirName {
+    align-self: flex-end;
+    margin: -0.55em 0 0;
+    font-size: clamp(5.4rem, 29vw, 8rem);
+  }
+  .damirBody {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .ilyaName {
+    font-size: clamp(7rem, 38vw, 14rem);
+    margin-bottom: -0.28em;
+    order: 0;
+  }
+  .ilyaPhoto {
+    order: 1;
+    width: 100%;
+    margin: 0;
+  }
+  .ilyaBody {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 28px;
+  }
+  .quote {
+    max-width: 20ch;
+  }
+  .markBody {
+    display: contents;
+  }
+  .markName {
+    order: 0;
+    position: relative;
+    z-index: 2;
+    font-size: clamp(6rem, 34vw, 9rem);
+  }
+  .markPhoto {
+    order: 1;
+    width: 66%;
+    align-self: flex-end;
+    margin-top: -1.2rem;
+    position: relative;
+    z-index: 0;
+  }
+  .skills {
+    order: 2;
+    margin-top: 28px;
+  }
+  .markBody .meta,
+  .markBody > :last-child {
+    order: 3;
+  }
+  .markBody .meta {
+    margin-top: 20px;
+  }
+  .markBody > :last-child {
+    margin-top: 20px;
+  }
+}

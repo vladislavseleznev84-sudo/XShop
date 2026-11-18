@@ -1,0 +1,58 @@
+.btn {
+  --fill: var(--bone);
+  --on: var(--ink);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1px solid var(--fill);
+  background: var(--fill);
+  color: var(--on);
+  font-size: var(--t-small);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.35s var(--ease-cut);
+}
+.dark {
+  --fill: var(--ink);
+  --on: var(--bone);
+}
+.lg {
+  min-height: 60px;
+  padding: 0 40px;
+  font-size: 1rem;
+}
+/* шторка: заливка противоположного цвета выезжает слева, как линия реза */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--on);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-cut);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@media (hover: hover) {
+  .btn:not(:disabled):hover {
+    color: var(--fill);
+  }
+  .btn:not(:disabled):hover::before {
+    transform: scaleX(1);
+  }
+}
+.btn:not(:disabled):active::before {
+  transform: scaleX(1);
+}
+.label {
+  position: relative;
+}

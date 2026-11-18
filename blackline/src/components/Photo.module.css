@@ -1,0 +1,24 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--coal);
+}
+.inner {
+  position: absolute;
+  inset: 0;
+}
+/* запас по высоте, чтобы параллакс не открывал края */
+.parallax {
+  inset: -14% 0;
+  will-change: transform;
+}
+.inner picture,
+.inner img {
+  width: 100%;
+  height: 100%;
+}
+.inner img {
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}

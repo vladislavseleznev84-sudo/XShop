@@ -1,0 +1,85 @@
+.footer {
+  position: relative;
+  background: var(--coal);
+  padding: clamp(64px, 9vw, 140px) var(--gutter) 0;
+  overflow: hidden;
+}
+.cols {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px var(--gutter);
+  font-size: var(--t-small);
+}
+.cols ul {
+  display: grid;
+  gap: 2px;
+  align-content: start;
+}
+.cols a,
+.hours {
+  display: inline-block;
+  padding: 6px 0;
+}
+.cols a {
+  background: linear-gradient(currentColor, currentColor) left calc(100% - 4px) / 0 1px no-repeat;
+  transition: background-size 0.5s var(--ease-cut);
+}
+@media (hover: hover) {
+  .cols a:hover {
+    background-size: 100% 1px;
+  }
+}
+.hours {
+  display: flex;
+  justify-content: space-between;
+  max-width: 15rem;
+}
+.hours span:last-child {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--ash);
+}
+.addr {
+  margin-top: 12px;
+  color: var(--ash);
+}
+.up {
+  justify-self: end;
+  align-self: start;
+}
+
+.mark {
+  --h: 19.6vw;
+  margin: clamp(40px, 7vw, 120px) calc(var(--gutter) * -0.35) 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-stretch: 62.5%;
+  font-size: var(--h);
+  line-height: 0.78;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  color: var(--bone);
+  user-select: none;
+  /* показываем только верхние ~53% слова: нижняя половина «срезана» */
+  height: calc(var(--h) * 0.78 * 0.53);
+  overflow: hidden;
+  border-bottom: 2px solid var(--bone);
+}
+.legal {
+  padding: 18px 0 max(18px, env(safe-area-inset-bottom));
+  font-family: var(--mono);
+  font-size: var(--t-mono);
+  color: var(--ash);
+}
+
+@media (max-width: 760px) {
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+  .up {
+    justify-self: start;
+  }
+  .mark {
+    --h: 19.6vw;
+  }
+}

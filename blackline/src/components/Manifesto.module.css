@@ -1,0 +1,75 @@
+.section {
+  position: relative;
+  padding: clamp(96px, 16vw, 240px) var(--gutter) clamp(80px, 12vw, 200px);
+  background: var(--ink);
+}
+.statement {
+  --p: 1;
+  /* ширина и отступ первой строки задают асимметрию: правый край рваный, слева — «ступенька» */
+  margin-left: clamp(0px, 8.33vw, 140px);
+  max-width: 17.5em;
+  font-size: clamp(2.35rem, 0.9rem + 5.3vw, 6.4rem);
+  line-height: 1.03;
+  text-indent: 1.6em;
+  letter-spacing: -0.03em;
+}
+.word {
+  /* слово проявляется, когда прогресс --p догоняет его позицию --w */
+  opacity: clamp(0.17, calc((var(--p) - var(--w)) * 16 + 0.17), 1);
+}
+
+.lower {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(12px, 2vw, 32px);
+  margin-top: clamp(64px, 9vw, 160px);
+  align-items: start;
+}
+.photo {
+  grid-column: 1 / 6;
+  grid-row: 1;
+}
+.principles {
+  grid-column: 7 / 12;
+  grid-row: 1;
+  align-self: end;
+  display: grid;
+}
+.principles li {
+  padding: 22px 0;
+  border-top: 1px solid var(--graphite);
+  font-size: var(--t-lead);
+  line-height: 1.35;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  max-width: 30ch;
+}
+.principles li:last-child {
+  border-bottom: 1px solid var(--graphite);
+}
+
+@media (max-width: 960px) {
+  .photo {
+    grid-column: 1 / 8;
+  }
+  .principles {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 48px;
+  }
+}
+@media (max-width: 760px) {
+  .statement {
+    margin-left: 0;
+    text-indent: 1em;
+    font-size: clamp(2.1rem, 9.2vw, 3rem);
+    line-height: 1.07;
+  }
+  .photo {
+    grid-column: 1 / 11;
+  }
+  .principles li {
+    font-size: 1.125rem;
+    padding: 18px 0;
+  }
+}

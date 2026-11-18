@@ -1,0 +1,30 @@
+.bar {
+  display: none;
+}
+@media (max-width: 760px) {
+  .bar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    padding: 10px var(--gutter) max(12px, env(safe-area-inset-bottom));
+    background: linear-gradient(to top, var(--ink) 55%, transparent);
+    transform: translateY(110%);
+    transition: transform 0.5s var(--ease-cut);
+    pointer-events: none;
+  }
+  .on {
+    transform: none;
+    pointer-events: auto;
+  }
+  .bar button {
+    width: 100%;
+    min-height: 54px;
+    background: var(--bone);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
